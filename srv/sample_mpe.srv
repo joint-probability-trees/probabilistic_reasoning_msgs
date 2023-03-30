@@ -1,0 +1,9 @@
+# Sample from the most probable state of a model.
+
+# The amount of samples to generate
+int32 amount
+
+---
+
+# the json serialized samples
+string samples

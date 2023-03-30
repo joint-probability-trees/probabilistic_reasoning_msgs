@@ -1,0 +1,30 @@
+# Request the most probable explanation (mode) of a distribution given some evidence. The evidence is a json serialized
+# dictionary of the form Dict[str, str or Set[str] or int or float or List[float or int] or List[List[float or int]].
+# The key string are variable names that are present in the reasoner that implements this interface.
+# The values are one of the following:
+#   - string: The variable described in the key must be symbolic and the string must be a value of that
+#        variables domain.
+#   - set of strings: The variable described in the key must be symbolic and the strings in the set must be values of
+#        that variables domain.
+#   - numbers: The variable described in the key is numeric and the value describes its value.
+#   - list of numbers: The variable described in the key is numeric and the list contains two numbers, the lower and
+#        upper bound for the variable.
+#   - list of lists of number: The variable described in the key is numeric and the inner list contains two numbers,
+#        the lower and upper bound for the variable. The outer list describes multiple intervals
+
+# The result is also a json serialized dict as described above. The keys are all variables and the values are one of the
+# above described, depending on the type of variable in the key.
+
+# The evidence
+string evidence
+
+# Response message
+---
+# Returns most probable explanation as dictionary
+string mpe
+
+# and a float describing the (maximum) density of the states described in mpe
+float64 likelihood
+
+# bool marking if the evidence is possible
+bool satisfiable

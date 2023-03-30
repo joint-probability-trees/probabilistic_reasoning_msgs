@@ -1,0 +1,7 @@
+# The evidence
+string evidence
+
+---
+
+# bool marking if the evidence is possible
+bool satisfiable
